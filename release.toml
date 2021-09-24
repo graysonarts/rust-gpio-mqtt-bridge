@@ -1,4 +1,7 @@
-pre-release-commit-message = "chore: Release"
+pre-release-commit-message = "chore(release): prepare for"
+tag-prefix = "v"
 tag-message = "{{tag_name}}"
+no-dev-version = true
 consolidate-pushes = true
+consolidate-commits = true
 allow-branch = ["main"]
