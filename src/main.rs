@@ -50,7 +50,12 @@ pub fn main() -> Result<(), Box<dyn Error>> {
     );
 
     let config = Config::from_file("config.toml")?;
-    let topic_root = config.mqtt.topic_root.as_ref().unwrap_or(&"gpio".to_string()).to_string();
+    let topic_root = config
+        .mqtt
+        .topic_root
+        .as_ref()
+        .unwrap_or(&"gpio".to_string())
+        .to_string();
 
     info!("Configuring pins for input");
     let ctrl = InterruptCtrl::from_gpio_config(&config.gpio)?;
@@ -60,19 +65,17 @@ pub fn main() -> Result<(), Box<dyn Error>> {
     mqttopts.set_keep_alive(5);
     let (mut client, mut connection) = Client::new(mqttopts, 10);
 
-    thread::spawn(move || {
-        loop {
-            let result = ctrl.poll(|subtopic, message| {
-                let topic = format!("{}/{}", topic_root, subtopic);
-                match client.publish(&topic, QoS::AtLeastOnce, false, message) {
-                    Ok(_) => bright!("{} => {}", topic, message),
-                    Err(e) => error!("Failed to send {}/{}: {}", topic, message, e)
-                };
-            });
+    thread::spawn(move || loop {
+        let result = ctrl.poll(|subtopic, message| {
+            let topic = format!("{}/{}", topic_root, subtopic);
+            match client.publish(&topic, QoS::AtLeastOnce, false, message) {
+                Ok(_) => bright!("{} => {}", topic, message),
+                Err(e) => error!("Failed to send {}/{}: {}", topic, message, e),
+            };
+        });
 
-            if let Err(e) = result {
-                error!("Error Polling Pins: {}", e);
-            }
+        if let Err(e) = result {
+            error!("Error Polling Pins: {}", e);
         }
     });
 
