@@ -1,3 +1,5 @@
+[![Continuous Integration](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml)
+
 ## Cross-Compile on Windows
 
 Follow [these instructions](https://s2e-systems.github.io/Rust-RPi4-Windows-Cross-Compilation/) to setup rust to
