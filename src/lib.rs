@@ -1,3 +1,6 @@
+// Copyright 2021 Grayson Hay.
+// SPDX-License-Identifier: MIT
+
 pub mod config;
 
 use rppal::{gpio::Gpio, gpio::InputPin};
@@ -115,7 +118,7 @@ mod test {
     #[test]
     fn can_create_interrupt_ctrl() {
         let gpios = vec![GpioConfig::new(1, "foo", TriggerType::Falling)];
-        let ctrl = InterruptCtrl::from_gpio_config(&gpios).expect("Unable to create Ctrl");
+        let _ctrl = InterruptCtrl::from_gpio_config(&gpios).expect("Unable to create Ctrl");
     }
 
     #[test]

@@ -1,13 +1,12 @@
+// Copyright 2021 Grayson Hay.
+// SPDX-License-Identifier: MIT
+
 use rumqttc::MqttOptions;
 use serde_derive::Deserialize;
 use std::fs;
 use std::path::Path;
 
-// #[cfg(target = "armv7-unknown-linux-gnueabihf")]
 use rppal::gpio::Trigger;
-
-// #[cfg(not(target = "armv7-unknown-linux-gnueabihf"))]
-// use crate::fake::Trigger;
 
 #[derive(Debug, Deserialize)]
 pub struct MqttConfig {

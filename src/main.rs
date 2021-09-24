@@ -1,3 +1,6 @@
+// Copyright 2021 Grayson Hay.
+// SPDX-License-Identifier: MIT
+
 use rppal::system::DeviceInfo;
 
 use colored::Colorize;
