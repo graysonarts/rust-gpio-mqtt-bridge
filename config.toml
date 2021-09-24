@@ -1,0 +1,21 @@
+[mqtt]
+host = "broker.hivemq.com"
+topic_root = "gpio_bridge"
+
+[[gpio]]
+pin = 23
+topic = "rising"
+trigger = "rising"
+with_pullup = true
+
+[[gpio]]
+pin = 24
+topic = "falling"
+trigger = "falling"
+with_pullup = true
+
+[[gpio]]
+pin = 25
+topic = "transition"
+trigger = "transition"
+with_pullup = true
