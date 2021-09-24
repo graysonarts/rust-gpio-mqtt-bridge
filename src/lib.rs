@@ -1,8 +1,8 @@
 pub mod config;
 
-use rppal::{gpio::Gpio, gpio::InputPin, gpio::Level, gpio::Trigger};
+use rppal::{gpio::Gpio, gpio::InputPin};
 
-use config::{GpioConfig, TriggerType};
+use config::{GpioConfig};
 use serde_derive::Serialize;
 use std::collections::HashMap;
 
@@ -28,7 +28,10 @@ impl From<rppal::gpio::Error> for ICError {
 
 impl std::fmt::Display for ICError {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-        todo!()
+        use ICError::*;
+        match self {
+            GenericError(e) => write!(f, "InterruptCtrl Error: {}", e),
+        }
     }
 }
 
@@ -42,14 +45,16 @@ impl Message {
     pub fn new(pin: u8, message: String) -> Message {
         Message { pin, message }
     }
+}
 
-    pub fn to_string(&self) -> String {
-        serde_json::to_string(self).unwrap_or("Unknown Payload".to_string())
+impl ToString for Message {
+    fn to_string(&self) -> String {
+        serde_json::to_string(self).unwrap_or_else(|_| "Unknown Payload".to_string())
     }
 }
 
 impl InterruptCtrl {
-    pub fn from_gpio_config(configs: &Vec<GpioConfig>) -> Result<Self, ICError> {
+    pub fn from_gpio_config(configs: &[GpioConfig]) -> Result<Self, ICError> {
         let gpio = Gpio::new()?;
 
         let pins: Result<Vec<InputPin>, _> = configs
@@ -61,8 +66,7 @@ impl InterruptCtrl {
                         false => p.into_input(),
                     })
                     .map(|mut p| {
-                        p.set_interrupt(c.trigger.into())
-                            .expect(&format!("Cannot set interupt on {}", p.pin()));
+                        p.set_interrupt(c.trigger.into()).unwrap_or_else(|_| panic!());
                         p
                     })
             })
@@ -88,17 +92,14 @@ impl InterruptCtrl {
     {
         let pin_refs: Vec<_> = self.pins.iter().collect();
         let result = self.gpio.poll_interrupts(&pin_refs, false, None)?; // TODO: Maybe implement a timeout
-        match result {
-            Some((pin, level)) => {
-                let topic = self.topic_map.get(&pin.pin());
-                if let Some(topic) = topic {
-                    let message = Message::new(pin.pin(), format!("{:?}", level)).to_string();
-                    callback(&topic, &message);
-                } else {
-                    todo!()
-                }
+        if let Some((pin, level)) = result {
+            let topic = self.topic_map.get(&pin.pin());
+            if let Some(topic) = topic {
+                let message = Message::new(pin.pin(), format!("{:?}", level)).to_string();
+                callback(topic, &message);
+            } else {
+                unreachable!();
             }
-            None => {}
         };
         Ok(())
     }

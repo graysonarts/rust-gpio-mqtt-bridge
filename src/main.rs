@@ -4,16 +4,16 @@ use colored::Colorize;
 use std::error::Error;
 
 use rumqttc::{Client, QoS};
-use tokio::task;
+
 
 use gpio_mqtt_bridge::config::Config;
 use gpio_mqtt_bridge::InterruptCtrl;
 
-use rppal::gpio::Gpio;
-use std::thread;
-use std::time::Duration;
 
-const VERSION: &'static str = env!("CARGO_PKG_VERSION");
+use std::thread;
+
+
+const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 macro_rules! info {
     () => (print!("\n"));
@@ -80,7 +80,7 @@ pub fn main() -> Result<(), Box<dyn Error>> {
     });
 
     loop {
-        for (i, notification) in connection.iter().enumerate() {
+        for notification in connection.iter() {
             info!("MQTT notification: {:?}", notification);
         }
     }

@@ -20,11 +20,8 @@ pub struct MqttConfig {
 impl MqttConfig {
     pub fn as_mqtt_options(&self) -> MqttOptions {
         let mut opts = MqttOptions::new("waterland-ctrl", &self.host, 1883);
-        match (self.username.as_ref(), self.password.as_ref()) {
-            (Some(username), Some(password)) => {
-                opts.set_credentials(username, password);
-            }
-            _ => {}
+        if let (Some(username), Some(password)) = (self.username.as_ref(), self.password.as_ref()) {
+            opts.set_credentials(username, password);
         };
 
         opts
@@ -41,10 +38,10 @@ pub enum TriggerType {
     AnyTransition,
 }
 
-impl Into<Trigger> for TriggerType {
-    fn into(self) -> Trigger {
+impl From<TriggerType> for Trigger {
+    fn from(item: TriggerType) -> Self {
         use TriggerType::*;
-        match self {
+        match item {
             Rising => Trigger::RisingEdge,
             Falling => Trigger::FallingEdge,
             AnyTransition => Trigger::Both,
@@ -88,7 +85,11 @@ pub enum ConfigError {
 
 impl std::fmt::Display for ConfigError {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-        todo!()
+        use ConfigError::*;
+        match self {
+            IoError(e) => write!(f, "IoError: {}", e),
+            ParseError(e) => write!(f, "ParseError: {}", e),
+        }
     }
 }
 

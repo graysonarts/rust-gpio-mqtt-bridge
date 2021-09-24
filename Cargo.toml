@@ -12,5 +12,4 @@ serde = "1"
 serde_derive = "1"
 serde_json = "1"
 rumqttc = "0.7.0" # 0.8.0 is broken, so we use 0.7.0 for now
-tokio = "1"
 rppal = "0.12.0"
