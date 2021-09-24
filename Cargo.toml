@@ -2,7 +2,12 @@
 name = "gpio-mqtt-bridge"
 version = "0.1.0"
 authors = ["Grayson Hay <me@russellhay.com>"]
+description = "A command line tool for the raspberry pi for receiving events on GPIO pins and relaying messages to MQTT"
+homepage = "https://github.com/graysonarts/rust-gpio-mqtt-bridge"
+repository = "https://github.com/graysonarts/rust-gpio-mqtt-bridge"
+documentation = "https://github.com/graysonarts/rust-gpio-mqtt-bridge"
 edition = "2018"
+license = "MIT"
 
 
 [dependencies]
