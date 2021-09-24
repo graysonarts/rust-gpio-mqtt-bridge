@@ -2,7 +2,7 @@ pub mod config;
 
 use rppal::{gpio::Gpio, gpio::InputPin};
 
-use config::{GpioConfig};
+use config::GpioConfig;
 use serde_derive::Serialize;
 use std::collections::HashMap;
 
@@ -66,7 +66,8 @@ impl InterruptCtrl {
                         false => p.into_input(),
                     })
                     .map(|mut p| {
-                        p.set_interrupt(c.trigger.into()).unwrap_or_else(|_| panic!());
+                        p.set_interrupt(c.trigger.into())
+                            .unwrap_or_else(|_| panic!());
                         p
                     })
             })
@@ -103,19 +104,12 @@ impl InterruptCtrl {
         };
         Ok(())
     }
-
-    #[cfg(test)]
-    fn test_pin(&mut self, pin: u8, event: Level) -> Result<(), ICError> {
-        self.pins
-            .iter_mut()
-            .filter(|p| p.pin() == pin)
-            .for_each(|mut p| p.level = event);
-        Ok(())
-    }
 }
 
 #[cfg(test)]
 mod test {
+    use crate::config::TriggerType;
+
     use super::*;
 
     #[test]
@@ -132,23 +126,5 @@ mod test {
         ];
         let ctrl = InterruptCtrl::from_gpio_config(&gpios);
         assert!(ctrl.is_err());
-    }
-
-    #[test]
-    fn when_pin_goes_high_trigger() {
-        let gpios = vec![GpioConfig::new(1, "yes", TriggerType::Rising)];
-        let mut ctrl =
-            InterruptCtrl::from_gpio_config(&gpios).expect("Unable to create controller");
-        let mut topic = String::new();
-        let mut message = String::new();
-        ctrl.test_pin(1, Level::High)
-            .expect("Could not set test pin");
-        ctrl.poll(|t, m| {
-            topic.push_str(t);
-            message.push_str(m);
-        })
-        .expect("Poll did not finish successfully");
-        assert_eq!(topic, "/yes");
-        assert_eq!(message, r#"{"pin":1,"level":1}"#);
     }
 }

@@ -5,13 +5,10 @@ use std::error::Error;
 
 use rumqttc::{Client, QoS};
 
-
 use gpio_mqtt_bridge::config::Config;
 use gpio_mqtt_bridge::InterruptCtrl;
 
-
 use std::thread;
-
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
