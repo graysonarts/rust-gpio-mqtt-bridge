@@ -13,3 +13,8 @@ serde_derive = "1"
 serde_json = "1"
 rumqttc = "0.7.0" # 0.8.0 is broken, so we use 0.7.0 for now
 rppal = "0.12.0"
+
+[dev-dependencies.cargo-husky]
+version = "1"
+default-features = false
+features = ["precommit-hook", "run-cargo-check", "run-cargo-clippy", "run-cargo-fmt"]

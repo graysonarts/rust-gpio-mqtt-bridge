@@ -15,4 +15,10 @@ or having an unencrypted ssh key.
 
 ## Deployment
 
-TODO
+Same as running, but use the deploy script
+
+## CONTRIBUTING
+
+We use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and [conventional comments](https://conventionalcomments.org/)
+
+More details coming later.
