@@ -4,6 +4,3 @@ no-dev-version = true
 consolidate-pushes = true
 consolidate-commits = true
 allow-branch = ["main"]
-pre-release-replacements = [
-	{ file="CHANGELOG.md", search="[unreleased]", replace="[{{version}}]" }
-]
