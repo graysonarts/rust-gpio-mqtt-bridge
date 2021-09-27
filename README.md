@@ -1,4 +1,4 @@
-[![Continuous Integration](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml)
+[![Continuous Integration](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml) [![GitHub issues](https://img.shields.io/github/issues/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/issues) [![GitHub license](https://img.shields.io/github/license/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/blob/main/LICENSE) ![Requires.io](https://img.shields.io/requires/github/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)
 
 ## Cross-Compile on Windows
 
