@@ -19,6 +19,9 @@ or having an unencrypted ssh key.
 
 Same as running, but use the deploy script
 
+## CONTRIBUTORS
+
+
 ## CONTRIBUTING
 
 We use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and [conventional comments](https://conventionalcomments.org/)
