@@ -19,7 +19,7 @@ or having an unencrypted ssh key.
 
 Same as running, but use the deploy script
 
-## CONTRIBUTORS
+## Contributors
 
 
 ## CONTRIBUTING
