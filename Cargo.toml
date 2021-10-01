@@ -24,4 +24,4 @@ cargo-release = "0.17.1"
 [dev-dependencies.cargo-husky]
 version = "1"
 default-features = false
-features = ["precommit-hook", "run-cargo-check", "run-cargo-clippy", "run-cargo-fmt"]
+features = ["precommit-hook", "run-cargo-fmt"]
