@@ -37,7 +37,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://graysonarts.com/"><img src="https://avatars.githubusercontent.com/u/94549?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Grayson Hay</b></sub></a><br /><a href="https://github.com/graysonarts/rust-gpio-mqtt-bridge/commits?author=graysonarts" title="Code">💻</a></td>
+    <td align="center"><a href="https://graysonarts.com/"><img src="https://avatars.githubusercontent.com/u/94549?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Grayson Hay</b></sub></a><br /><a href="https://github.com/graysonarts/rust-gpio-mqtt-bridge/commits?author=graysonarts" title="Code">💻</a> <a href="https://github.com/graysonarts/rust-gpio-mqtt-bridge/commits?author=graysonarts" title="Documentation">📖</a></td>
   </tr>
 </table>
 
