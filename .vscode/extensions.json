@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "vtrois.gitmoji-vscode",
+    "serayuzgur.crates",
+    "bungcip.better-toml",
+    "matklad.rust-analyzer"
+  ]
+}
