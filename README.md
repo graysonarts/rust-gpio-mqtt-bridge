@@ -1,6 +1,9 @@
-[![Continuous Integration](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/actions/workflows/ci.yml) [![GitHub issues](https://img.shields.io/github/issues/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/issues) [![GitHub license](https://img.shields.io/github/license/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/blob/main/LICENSE) ![Requires.io](https://img.shields.io/requires/github/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/graysonarts/rust-gpio-mqtt-bridge/HEAD?style=for-the-badge) [![GitHub issues](https://img.shields.io/github/issues/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/issues) [![GitHub license](https://img.shields.io/github/license/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)](https://github.com/graysonarts/rust-gpio-mqtt-bridge/blob/main/LICENSE) ![Requires.io](https://img.shields.io/requires/github/graysonarts/rust-gpio-mqtt-bridge?style=for-the-badge)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=for-the-badge)](#contributors)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Cross-Compile on Windows
