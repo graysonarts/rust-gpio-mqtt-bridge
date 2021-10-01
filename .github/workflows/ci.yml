@@ -20,6 +20,7 @@ jobs:
         with:
           profile: minimal
           toolchain: nightly
+          target: armv7-unknown-linux-gnueabihf
           override: true
           components: rustfmt
 
@@ -29,54 +30,57 @@ jobs:
           command: fmt
           args: -- --check
 
-  check:
-    name: Compilation check
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        rust:
-          - stable
-          - nightly
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
+  # Disable check and link for now.
+  # check:
+  #   name: Compilation check
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     fail-fast: true
+  #     matrix:
+  #       rust:
+  #         - stable
+  #         - nightly
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v2
 
-      - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: ${{ matrix.rust }}
-          override: true
+  #     - name: Install Rust toolchain
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         profile: minimal
+  #         toolchain: ${{ matrix.rust }}
+  #         target: armv7-unknown-linux-gnueabihf
+  #         override: true
 
-      - name: Run cargo check
-        uses: actions-rs/cargo@v1
-        with:
-          command: check
+  #     - name: Run cargo check
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: check
 
-  clippy:
-    name: Lint check
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        rust:
-          - stable
-          - nightly
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
+  # clippy:
+  #   name: Lint check
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       rust:
+  #         - stable
+  #         - nightly
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v2
 
-      - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: ${{ matrix.rust }}
-          override: true
-          components: clippy
+  #     - name: Install Rust toolchain
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         profile: minimal
+  #         toolchain: ${{ matrix.rust }}
+  #         target: armv7-unknown-linux-gnueabihf
+  #         override: true
+  #         components: clippy
 
-      - name: Run lints
-        uses: actions-rs/cargo@v1
-        with:
-          command: clippy
-          args: -- -D warnings
+  #     - name: Run lints
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: clippy
+  #         args: -- -D warnings

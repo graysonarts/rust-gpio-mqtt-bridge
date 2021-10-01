@@ -1,0 +1,26 @@
+{
+  "projectName": "rust-gpio-mqtt-bridge",
+  "projectOwner": "graysonarts",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=for-the-badge)](#contributors)",
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "graysonarts",
+      "name": "Grayson Hay",
+      "avatar_url": "https://avatars.githubusercontent.com/u/94549?v=4",
+      "profile": "https://graysonarts.com/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

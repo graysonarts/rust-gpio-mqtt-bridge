@@ -9,7 +9,6 @@ documentation = "https://github.com/graysonarts/rust-gpio-mqtt-bridge"
 edition = "2018"
 license = "MIT"
 
-
 [dependencies]
 toml = "0.5.8"
 colored = "2"
